@@ -1,11 +1,12 @@
+import random
+
+# represents a cluster - a tuple of a name and a list of example sentences
 class Cluster:
 
     def __init__(self, name, sentences):
-        """Initializes the data."""
         self.name = name
         self.__sentences = sentences
         self.values = {}
-        self.compute_values()
 
     def compute_values(self):
         total = 0.0
@@ -25,3 +26,9 @@ class Cluster:
             if word in self.values:
                 total += self.values[word]
         return total
+
+    def pop_random_sentence(self):
+        return self.__sentences.pop(random.randrange(len(self.__sentences)))
+
+    def size(self):
+        return len(self.__sentences)

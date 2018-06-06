@@ -1,16 +1,11 @@
-from Cluster import *
 from Classifier import *
+from DataManipulator import *
+
 
 def main():
-    classifier = Classifier()
-    with open('clusters.json', 'r') as f:
-        data = f.read()
-    classifier.decode(data)
-    print(classifier.classify("I like meat"))
-    print(classifier.classify("Meat is healthy"))
-    print(classifier.classify("There's a variety of different meats"))
-
-
+    dm = DataManipulator("clusters.json", 0.3)
+    classifier = Classifier(dm.get_clusters())
+    classifier.test(dm.get_test_data())
 
 if __name__ == "__main__":
     main()

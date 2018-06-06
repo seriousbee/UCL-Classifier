@@ -1,12 +1,9 @@
-import json
-from Cluster import *
-
-
+# represents a classifier system - it has a list of clusters, is able to create the clusters, and allocate an unknown
+# sentence to one of the clusters
 class Classifier:
 
-    def __init__(self):
-        """Initializes the data."""
-        self.__clusters = []
+    def __init__(self, clusters):
+        self.__clusters = clusters
 
     def classify(self, sentence):
         max_value = 0
@@ -18,9 +15,16 @@ class Classifier:
                 max_cluster = cluster.name
         return max_cluster
 
-    #format: clusters: {{name: A, sentences: ["sen1", "sen2"]}, {name: B, sentences: ["sen3", "sen4"]}}
-    def decode(self, json_string):
-        j_object = json.loads(json_string)
-        for i in j_object["clusters"]:
-            cluster = Cluster(i["name"], i["sentences"])
-            self.__clusters.append(cluster)
+    # test data is a list of tuples - sentence and the correct outcome
+    def test(self, test_data):
+        total = 0.0
+        correct = 0
+        for test_case in test_data:
+            total += 1
+            result = self.classify(test_case[0])
+            if result == test_case[1]:
+                print("Passed: " + test_case[0] + " correctly identified as " + test_case[1])
+                correct += 1
+            else:
+                print("Failed: " + test_case[0] + " identified as " + result + ", instead of " + test_case[1])
+        print("Success rate: " + str(correct/total))
