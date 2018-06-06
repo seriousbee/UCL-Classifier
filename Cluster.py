@@ -4,14 +4,13 @@ class Cluster:
         """Initializes the data."""
         self.name = name
         self.__sentences = sentences
-        print("(Initializing {})".format(self.__name))
         self.values = {}
         self.compute_values()
 
     def compute_values(self):
         total = 0.0
         for sentence in self.__sentences:
-            for word in sentence.toLowerCase().split(' '):
+            for word in sentence.lower().split(' '):
                 if word in self.values:
                     self.values[word] += 1
                 else:
@@ -22,7 +21,7 @@ class Cluster:
 
     def rate_new_sentence(self, sentence):
         total = 0.0
-        for word in sentence.toLowerCase().split(' '):
+        for word in sentence.lower().split(' '):
             if word in self.values:
                 total += self.values[word]
         return total
