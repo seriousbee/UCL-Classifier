@@ -1,0 +1,60 @@
+{
+"clusters":
+[
+{
+"name": "Algorithm",
+"sentences": [
+"Google results are based off successful, long running algorithms trained on large datasets. These algorithms produce valid results that successfully increase clicks, even if people do not believe it.",
+"By just measuring the frequency the word abortion was used on the wikipedia page for abortion, google's algorithm ignored the context in which the word was used. Just because the word \"murder\" was mentioned does not mean it equated it to abortions making the search result misleading",
+"Google's ranking algorithm may be misinterpreting the context of how abortion and murder are related or their algorithm may have been deliberately manipulated to show this result.",
+"An algorithm is not invalid just because it is not programmed to filter biases and opinions. The algorithm is using associations between search queries. Abortion and murder searchers may have high correlations.",
+"By just measuring the frequency the word abortion was used on the wikipedia page for abortion, google's algorithm ignored the context in which the word was used. Just because the word \"murder\" was mentioned does not mean it equated it to abortions making the search result misleading",
+"Google's algorithm is based on the most clicks on a search, so it is not on google as to why it shows up ",
+"It's an error because algorithms are value neutral. The error comes from the data fed to the algorithm.",
+"Google's algorithm ties into what information it obtains from other sites. Because Google is foremost a search engine, Google is not at fault for falsely linked information simply because its algorithm displays the most searched websites. ",
+"Google list gives results based on potential clicks, and therefore the result is valid because there are a significant number of clicks when this result comes up",
+"What if Google's algorithm just decided that abortion was relevant to murder because it saw a lot of arguments about whether or not abortion is murder, and concluded that they were related subjects?",
+"Algorithms should be value neutral, they shouldn't favor one side of an ethical argument",
+"The algorithm is simple, and the websites returned are based on how many pages are linked to them "
+]
+},
+{
+	"name": "Inaccurate",
+	"sentences": [
+	"The use of Google Bombing makes the result invalid, it does not come from accurate data or searches, instead it is an intentional attempt to \"beat the system\"",
+"If that result is the consequence of users manipulating Google's PageRank algorithm for political purposes, Google has a responsibility to counter those efforts.",
+"Googles algorithm is promoting popular websites and due to Wikipedia's popularity it was promoted over other websites",
+"it is the users that provoke this result, the algorithm works as it is supposed to",
+"An algorithm should be fair in that they are accurate and should not be spoofed by a Google Bomber. A such this is a mistake.",
+"The users are the ones who promote a \"disturbing google response\". The algorithm however will never lead to an error, they simply just count the amount of outside links to this website. ",
+"The creator of the webpage used the key word like \"Murder\" in their article which is their own bias view regarding abortion. Google search engine simple connected those key words in the search and return a webpage that involved the key word \"Murder\" to the search result. ",
+"We are combining a word associated with terrorism, bombing, with a relation between two words, murder and abortion. To some people they share a valid relation. By making the people who endorse this word association "bombers" this article is no better than Google in acting unbiased.",
+"By just measuring the frequency the word abortion was used on the wikipedia page for abortion, google's algorithm ignored the context in which the word was used. Just because the word \"murder\" was mentioned does not mean it equated it to abortions making the search result misleading",
+"This is an error because the system was fed false data about the correlations of the words \"murder\" and \"abortion\". The use of the words were not in comparison.",
+"Since Google returning the Wikipedia page on \"abortion\" for searches of the word \"murder\" was probably due to Google bombing (being fed false data), we can't say the result was valid. After all, it was based on incorrect data."]
+},
+
+{
+	"name": "Link",
+	"sentences": ["Google bombing heavily linking unrelated topics, shows the connection between an abortion and murder. Cited specific years 2007, 2011 murders linked to abortion. I agree with how does murder link to abortion two different intentions",
+"Google's algorithm assigns each webpage a relevant score, based on how long the webpage has existed and the number of other webpages linked to the page in question. Because abortion is such a popular topic google returned a website that had a high score, which was not an error. ",
+"Various languages complicate the algorithm as 'abortion' might translate to a synonym to 'murder' but regardless the algorithm should be smarter to understand the context of a word ",
+"The algorithm google presented worked perfectly, it was the users input that caused the algorithm to pull up abortion pages when the term murder is searched",
+"the correlation between \"abortion\" and \"murder\" may not necessarily always conclude to a \"pro-life\" stance",
+"If Google algorithm is too accurate how could it pair murder and abortion as the same?"]
+},
+
+{
+	"name": "Responsibility",
+	"sentences": ["It is possible that Google can create a bias free platform because they are a huge company and almost everyone with access to the internet uses the search engine.",
+"However, it is Google's responsibility to help create a bias free platform (con). We have seen this problem in the latest presidential election. It should be an even platform for all topics/controversies.",
+"Google associating abortion with murder goes against the definition and surrounding context of the word and adds a connotation that is not necessarily agreed upon by all parties. ",
+"It is possible that Google can create a bias free platform because they are a huge company and almost everyone with access to the internet uses the search engine.",
+"However, it is Google's responsibility to help create a bias free platform (con). We have seen this problem in the latest presidential election. It should be an even platform for all topics/controversies.",
+"It is possible that Google can create a bias free platform because they are a huge company and almost everyone with access to the internet uses the search engine.",
+"Google is reluctant to alter its program by hand, thus 'bombing' will cause certain bias within the system that won't be corrected",
+"However, it is Google's responsibility to help create a bias free platform (con). We have seen this problem in the latest presidential election. It should be an even platform for all topics/controversies.",
+"Google's algorithm should have a way to deal with google bombing to influence search results"]
+}
+]
+}

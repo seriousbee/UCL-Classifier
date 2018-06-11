@@ -1,0 +1,112 @@
+{
+"clusters": 
+[
+{
+"name": "Easy",
+"sentences": [
+"Mostly because it's easier than being veggie, in terms of in my home (my husband eats meat)",
+"Quick and easy to prepare",
+"easy to cook",
+"I eat meat because I was taught how to cook it.",
+"Easily available",
+"Most people I know eat meat, so shared meals always include meat. It's just easier."
+]
+},
+{
+	"name": "Filling",
+	"sentences": [
+	"Its filling and easy to cook.",
+"I find it filling and varied",
+"It is filling and makes a meal complete",
+"It is natural and filling",
+"fills you up",
+"Meals which include meat make me feel full for longer than my non-meat meals."]
+},
+
+{
+	"name": "Health",
+	"sentences": ["I like to eat a good amount and source of protein for my general health and fitness",
+"I eat meat for a balanced diet. ",
+"Because its healthy",
+"It's part of a balanced diet. It's high in protein and the right kinds of meat are good for my health.",
+"It‚Äôs healthy",
+"i think its healthy",
+"Offers a full balanced diet ",
+"For a healthy diet",
+"Meat makes me full after eating and has protein that is good for my health.",
+"It is healthy and nutritious to eat meat.",
+"I think it‚Äôs good to have a health balanced diet and not good to cut out meat from your diet"]
+},
+
+{
+	"name": "Nutrition",
+	"sentences": ["Because of nutrition",
+"It contains nutrients ",
+"because it gives you protein",
+"It is a good source of protein",
+"Because of the protein",
+"I think your body needs the proteins and vitamins in the meat.",
+"In order to get the protein I need",
+"For its Nutritional value, protein etc.",
+"My body craves the protein",
+"To get a good iron, protein etc consumption",
+"I eat meat because it provides me with the protein I need and I enjoy the flavor.",
+"Culture aside, it is usually nutritious and an important source of protein.",
+"protein",
+"Because I don't like the taste of alternative protein sources",
+"It's a great source of protein"]
+},
+
+{
+	"name": "Taste",
+	"sentences": ["Because I enjoy the taste ",
+"Because it tastes good",
+"Because I love it ",
+"Because I like the taste",
+"Because it tastes good!",
+"its enjoyable",
+"I like it",
+"I enjoy the taste",
+"Because i enjoy dishes that contain it ",
+"I enjoy the taste of most meats ",
+"because i like it",
+"I enjoy the taste.",
+"I really enjoy the taste of it",
+"Habit and i like the taste and texture",
+"I eat meat mainly because I enjoy the taste of it.",
+"its is tasty",
+"I eat meat because I like it",
+"My main reason is to taste different kinds of meat.",
+"I enjoy eating it as it tastes nice",
+"I like the taste.",
+"I enjoy it and have always eaten it when possible",
+"children love it ",
+"Because of the taste",
+"It is delicious",
+"I enjoy certain meats",
+"I enjoy the taste ",
+"Because we like the taste and alternatives aren't as easy to obtain",
+"No specific reason it's just nice",
+"because i like it",
+"It tastes good",
+"I like the taste",
+"I enjoy the taste of most meats, mainly chicken, lamb and beef",
+"I like it",
+"Some meat tastes good.",
+"I like the taste of meat",
+"I like it.",
+"I make many meals that i like with it",
+"It's pretty tasty.",
+"I like it.",
+"It's delicious and versatile."]
+},
+
+{
+	"name": "Variety",
+	"sentences": ["Because there are various kinds.",
+"Meal variety",
+"It can be served well with many other kinds of food."]
+}
+
+]
+}

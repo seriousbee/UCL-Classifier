@@ -8,6 +8,7 @@ class Cluster:
         self.__sentences = sentences
         self.values = {}
 
+    # calculating the percentage number of  occurrences of each word
     def compute_values(self):
         total = 0.0
         for sentence in self.__sentences:

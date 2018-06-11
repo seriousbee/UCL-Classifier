@@ -3,7 +3,7 @@ from DataManipulator import *
 
 
 def main():
-    dm = DataManipulator("clusters.json", 0.3)
+    dm = DataManipulator("meat-clusters.json", 0.33)
     classifier = Classifier(dm.get_clusters())
     classifier.test(dm.get_test_data())
 
