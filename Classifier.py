@@ -1,5 +1,7 @@
 # represents a classifier system - it has a list of clusters, is able to create the clusters, and allocate an unknown
 # sentence to one of the clusters
+
+
 class Classifier:
 
     def __init__(self, clusters):
