@@ -24,8 +24,12 @@ class FeatureFactory:
         f.value = len(self.__sentence)
         return f
 
-    def vocabulary_similarity():
-
+    def vocabulary_similarity(clusters):
+        f = Feature()
+        f.name == "Single word similarity score"
+        #calculate the value
+        f.value = 0
+        return f
 
     #clusters is an array of clusters
     def calculate_relative(self, clusters):
