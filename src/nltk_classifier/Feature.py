@@ -1,3 +1,6 @@
+__all__ = ["Feature"]
+
+
 class Feature:
     def __init__(self):
         self.name = ""

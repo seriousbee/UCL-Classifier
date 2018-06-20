@@ -1,4 +1,5 @@
 from Expression import *
+__all__ = ["Cluster"]
 
 
 class Cluster:
@@ -37,6 +38,7 @@ class Cluster:
             table[i] /= total
         self.total = total #dangerous if method used not during initialisation
         return table
+
 
 
     #

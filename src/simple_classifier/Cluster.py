@@ -1,4 +1,6 @@
 import random
+__all__ = ["Cluster"]
+
 
 # represents a cluster - a tuple of a name and a list of example sentences
 class Cluster:

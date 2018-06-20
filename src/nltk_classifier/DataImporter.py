@@ -1,5 +1,6 @@
-from Cluster import *
+from nltk_classifier.Cluster import *
 import json
+__all__ = ["DataImporter"]
 
 
 # system responsible for splitting som input clusters' data into training and testing data

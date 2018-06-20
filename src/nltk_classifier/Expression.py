@@ -1,4 +1,5 @@
-from FeatureFactory import *
+from nltk_classifier.FeatureFactory import *
+__all__ = ["Expression"]
 
 
 class Expression:

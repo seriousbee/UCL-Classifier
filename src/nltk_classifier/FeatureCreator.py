@@ -1,3 +1,6 @@
+__all__ = ["FeatureCreator"]
+
+
 class FeatureCreator:
 
     def __init__(self, clusters, expression):

@@ -1,6 +1,6 @@
 # represents a classifier system - it has a list of clusters, is able to create the clusters, and allocate an unknown
 # sentence to one of the clusters
-
+__all__ = ["Classifier"]
 
 class Classifier:
 

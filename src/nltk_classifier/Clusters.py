@@ -1,4 +1,5 @@
-from DataImporter import *
+from nltk_classifier.DataImporter import *
+__all__ = ["Clusters"]
 
 
 #stores all data in the system
@@ -20,3 +21,4 @@ class Clusters:
 
     def identify_features(self):
         ff = FeatureFactory(self.clusters)
+
