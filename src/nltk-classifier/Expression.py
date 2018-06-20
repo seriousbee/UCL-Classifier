@@ -12,9 +12,12 @@ class Expression:
         self.features = ff.produce_features()
 
     def export_as_tuple(self):
-        #transform the features array into a hashtable
+        #transform the features array into a hashtable to extract the values in order
         return (i.value for i in self.features)
 
     def update_relative_features(self, clusters):
         ff = FeatureFactory.updating_features(self)
         ff.calculate_relative(clusters)
+
+    def __str__(self):
+        return "<\"" + self.text + "\", \"" + self.label + "\">"

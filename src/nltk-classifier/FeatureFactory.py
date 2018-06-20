@@ -2,37 +2,23 @@ from Feature import *
 
 class FeatureFactory:
 
-    def __init__(self, sentence, features):
-        self.__sentence = sentence
-        self.features = features
+    def __init__(self, clusters):
+        self.clusters = clusters
+        self.expressions = []
+        self.extract_expressions()
+        self.generate_features()
+        self.labeled_exprs = []
 
-    @classmethod
-    def new_expression(self, sentence):
-        self(sentence, [])
+    def extract_expressions(self):
+        for cluster in self.clusters:
+            for expression in cluster.expressions:
+                print(expression)
+                self.expressions.append(expression)
 
-    @classmethod
-    def updating_features(self, expression):
-        self.__sentence = expression.text
-        self.features = expression.features
-
-    def produce_features(self):
-        self.features.append(self.feature_length())
-
-    def feature_length(self):
-        f = Feature()
-        f.name = "Length of string"
-        f.value = len(self.__sentence)
-        return f
-
-    def vocabulary_similarity(clusters):
-        f = Feature()
-        f.name == "Single word similarity score"
-        #calculate the value
-        f.value = 0
-        return f
-
-    #clusters is an array of clusters
-    def calculate_relative(self, clusters):
-        #remove relative ones if exist
-        #calculate relative
-        pass
+    def generate_features(self):
+        for expression in self.expressions:
+            rel_clusters = []
+            for cluster in self.clusters:
+                rel_clusters.append(cluster.get_cluster_without_expr(expression))
+            fc = FeatureCreator(rel_clusters, expression)
+            self.labeled_exprs.append(fc.produce_features())
