@@ -1,4 +1,4 @@
-from nltk_classifier.Feature import *
+from nltk_classifier.models.Feature import *
 __all__ = ["FeatureCreator"]
 
 

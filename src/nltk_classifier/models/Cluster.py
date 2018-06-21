@@ -1,4 +1,4 @@
-from nltk_classifier.Expression import *
+from nltk_classifier.models.Expression import *
 __all__ = ["Cluster"]
 
 

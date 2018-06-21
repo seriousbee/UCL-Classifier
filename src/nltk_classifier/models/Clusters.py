@@ -1,7 +1,7 @@
-from nltk_classifier.DataImporter import *
-from nltk_classifier.FeatureFactory import *
-from nltk_classifier.Expression import *
-from nltk_classifier.FeatureCreator import *
+from nltk_classifier.util.DataImporter import *
+from nltk_classifier.util.FeatureFactory import *
+from nltk_classifier.models.Expression import *
+from nltk_classifier.util.FeatureCreator import *
 __all__ = ["Clusters"]
 
 

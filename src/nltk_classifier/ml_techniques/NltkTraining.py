@@ -14,7 +14,6 @@ class NltkTraining:
         random.shuffle(self.labeled_tuples)
         train_set = self.labeled_tuples[i:]
         test_set = self.labeled_tuples[:i]
-        print(train_set)
         self.classifier = nltk.NaiveBayesClassifier.train(train_set)
-        print("Done")
+        print("Trained Model, accuracy:")
         print(nltk.classify.accuracy(self.classifier, test_set))
