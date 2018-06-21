@@ -23,7 +23,8 @@ class Clusters:
     def get_labeled_dataset(self):
         labeled_tuples = []
         for expression in self.labeled_expressions:
-            labeled_tuples.append(expression.export_as_tuple())
+            # labeled_tuples.append(expression.export_as_tuple())
+            labeled_tuples.append(expression.export_as_dict())
         return labeled_tuples
 
     def identify_features(self):
@@ -32,5 +33,5 @@ class Clusters:
 
     def identify_features_for_unknown(self, sentence):
         expr = Expression(sentence, "Unknown")
-        fc = FeatureCreator(expr, self.clusters)
-        return fc.produce_features()
+        fc = FeatureCreator(self.clusters, expr)
+        return fc.produce_features().export_as_dict()[0]
