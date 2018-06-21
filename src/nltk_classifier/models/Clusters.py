@@ -35,3 +35,9 @@ class Clusters:
         expr = Expression(sentence, "Unknown")
         fc = FeatureCreator(self.clusters, expr)
         return fc.produce_features().export_as_dict()[0]
+
+    def __len__(self):
+        total = 0
+        for cluster in self.clusters:
+            total += len(cluster)
+        return total

@@ -1,3 +1,4 @@
+from nltk.corpus import stopwords
 from nltk_classifier.models.Expression import *
 __all__ = ["Cluster"]
 
@@ -9,6 +10,7 @@ class Cluster:
         self.expressions = []
         self.sentences = sentences
         self.expressions = self.sentences_to_expressions(self.sentences)
+        self.table = self.generate_vocab_table_no_stopwords()
 
     def sentences_to_expressions(self, sentences):
         expressions = []
@@ -37,3 +39,21 @@ class Cluster:
         for i in table:
             table[i] /= total
         return table
+
+    def generate_vocab_table_no_stopwords(self):
+        table = {}
+        total = 0.0
+        for expression in self.expressions:
+            for word in expression.text.lower().replace(".", "").replace(",", "").split(' '):
+                if word not in stopwords.words('english'):
+                    if word in table:
+                        table[word] += 1
+                    else:
+                        table[word] = 1
+                    total += 1
+        for i in table:
+            table[i] /= total
+        return table
+
+    def __len__(self):
+        return len(self.sentences)
