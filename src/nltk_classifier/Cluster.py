@@ -1,4 +1,4 @@
-from Expression import *
+from nltk_classifier.Expression import *
 __all__ = ["Cluster"]
 
 
@@ -24,10 +24,10 @@ class Cluster:
         except ValueError:
             return Cluster(self.name, self.sentences)
 
-    def generate_vocab_table(self, expressions):
+    def generate_vocab_table(self):
         table = {}
         total = 0.0
-        for expression in expressions:
+        for expression in self.expressions:
             for word in expression.text.lower().replace(".", "").replace(",", "").split(' '):
                 if word in table:
                     table[word] += 1
@@ -36,27 +36,4 @@ class Cluster:
                 total += 1
         for i in table:
             table[i] /= total
-        self.total = total #dangerous if method used not during initialisation
         return table
-
-
-
-    #
-    # def get_vocab_table_without(self, expression):
-    #     table = self.vocabulary
-    #     for word in expression.text.lower().split(' '):
-    #         if word in table:
-    #             table[word] -= 1/self.total
-    #         else:
-    #             print("Attempting to remove element that should have been there")
-    #             print ("Cluster " + self.name)
-    #             print ("Expression: " + expression)
-    #             exit(0)
-    #     return table
-    #
-    # def get_full_vocab_table(self):
-    #     return self.vocabulary
-
-    # TODO: create a hashtable for individual words without stop words (all + without given one)
-    # TODO: create a hashtable for expressions (all + without given one)
-    # TODO: create a hashtable for expressions without stop expressions (all + without given one)

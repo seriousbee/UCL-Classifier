@@ -8,13 +8,12 @@ class FeatureFactory:
         self.clusters = clusters
         self.expressions = []
         self.extract_expressions()
-        self.generate_features()
         self.labeled_exprs = []
+        self.generate_features()
 
     def extract_expressions(self):
         for cluster in self.clusters:
             for expression in cluster.expressions:
-                print(expression)
                 self.expressions.append(expression)
 
     def generate_features(self):

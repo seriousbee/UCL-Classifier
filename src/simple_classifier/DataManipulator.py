@@ -1,6 +1,6 @@
 import json
-from Cluster import *
-
+from simple_classifier.Cluster import *
+__all__=["DataManipulator"]
 
 # system responsible for splitting som input clusters' data into training and testing data
 class DataManipulator:

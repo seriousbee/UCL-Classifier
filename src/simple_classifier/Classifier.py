@@ -2,6 +2,7 @@
 # sentence to one of the clusters
 __all__ = ["Classifier"]
 
+
 class Classifier:
 
     def __init__(self, clusters):
