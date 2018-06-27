@@ -4,18 +4,18 @@ __all__ = ["FeatureCreator"]
 
 class FeatureCreator:
 
-    def __init__(self, clusters, expression):
+    def __init__(self, clusters, expression, markers):
         self.clusters = clusters
         self.expression = expression
         self.features = {}
-        self.tables = []
+        self.markers = markers
 
     def produce_features(self):
-        self.feature_length()
+        #self.feature_length()
         self.vocabulary_similarity_optimised()
         self.vocabulary_similarity_no_stopwords()
+        self.markers_present()
         #self.objective_word_present()
-        self.identify_markers()
         self.expression.features = self.features
         return self.expression
 
@@ -51,7 +51,6 @@ class FeatureCreator:
                 if word in table:
                     f.value += table[word]*len(word)
             self.features[f.name] = f
-            self.tables.append(table)
 
     def objective_word_present(self):
         f = Feature()
@@ -67,23 +66,17 @@ class FeatureCreator:
                 total += 1
         return total / length
 
-    def identify_markers(self):
-        lists = []
-        markers = []
-        for table in self.tables:
-            list_n = table.items()
-            lists.append(sorted(list_n, key=lambda tup: -tup[1]))
-        for list_n in lists:
-            for i in range(30):
-                if self. is_good_marker(list_n[i][0], list_n[i][1]):
-                    markers.append(list_n[i][0])
-        print(markers)
+    def markers_present(self):
+        words = self.expression.text.lower().replace(".", "").replace(",", "").split(' ')
+        for marker in self.markers:
+            f = Feature()
+            f.name = "Marker present " + marker
+            if marker in words:
+                f.value = 1
+            else:
+                f.value = 0
+            self.features[f.name] = f
 
-    def is_good_marker(self, key, value):
-        for table in self.tables:
-            if key not in table or table[key]*2 < value:
-                return True
-        return False
     # TODO: create a hashtable for individual words without stop words (all + without given one)
     # TODO: create a hashtable for expressions (all + without given one)
     # TODO: create a hashtable for expressions without stop expressions (all + without given one)
