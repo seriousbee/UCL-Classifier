@@ -11,7 +11,7 @@ class FeatureCreator:
         self.markers = markers
 
     def produce_features(self):
-        #self.feature_length()
+        self.feature_length()
         self.vocabulary_similarity_optimised()
         self.vocabulary_similarity_no_stopwords()
         self.markers_present()
