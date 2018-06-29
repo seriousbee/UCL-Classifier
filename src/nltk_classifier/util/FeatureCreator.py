@@ -4,11 +4,11 @@ __all__ = ["FeatureCreator"]
 
 class FeatureCreator:
 
-    def __init__(self, clusters, expression, markers):
+    def __init__(self, clusters, expression, marker_identification):
         self.clusters = clusters
         self.expression = expression
         self.features = {}
-        self.markers = markers
+        self.marker_identification = marker_identification
 
     def produce_features(self):
         self.feature_length()
@@ -68,13 +68,8 @@ class FeatureCreator:
 
     def markers_present(self):
         words = self.expression.text.lower().replace(".", "").replace(",", "").split(' ')
-        for marker in self.markers:
-            f = Feature()
-            f.name = "Marker present " + marker
-            if marker in words:
-                f.value = 1
-            else:
-                f.value = 0
+        fs = self.marker_identification.feature_generation_for(words)
+        for f in fs:
             self.features[f.name] = f
 
     # TODO: create a hashtable for individual words without stop words (all + without given one)

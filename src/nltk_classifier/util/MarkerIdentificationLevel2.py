@@ -1,6 +1,5 @@
 from nltk.corpus import wordnet
-
-
+from nltk_classifier.models.Feature import *
 __all__ = ["MarkerIdentificationLevel2"]
 
 
@@ -25,7 +24,6 @@ class MarkerIdentificationLevel2:
                     for synonym in synonyms:
                         if synonym not in self.more_markers:
                             self.more_markers[synonym] = word
-        return self.more_markers
 
     def find_synonyms_for_word(self, word):
         synonyms = []
@@ -45,3 +43,20 @@ class MarkerIdentificationLevel2:
             list_n = table.items()
             lists.append(sorted(list_n, key=lambda tup: -tup[1]))
         return lists
+
+    def feature_generation_for(self, words):
+        features = []
+        feature_dict = {}
+        for marker in self.markers:
+            feature_dict[marker] = 0
+
+        for word in words:
+            if word in self.more_markers:
+                feature_dict[word] = 1
+
+        for key in feature_dict:
+            f = Feature()
+            f.name = key
+            f.value = feature_dict[key]
+            features.append(f)
+        return features

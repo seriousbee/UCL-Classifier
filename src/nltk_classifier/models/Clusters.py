@@ -1,6 +1,6 @@
 from nltk_classifier.util.DataImporter import *
 from nltk_classifier.util.FeatureFactory import *
-from nltk_classifier.util.MarkerIdentification import *
+from nltk_classifier.util.MarkerIdentificationLevel2 import *
 __all__ = ["Clusters"]
 
 # stores all data in the system
@@ -10,10 +10,9 @@ class Clusters:
         self.clusters = []
         self.import_raw_data(path)
         self.labeled_expressions = []
-        self.markers = []
         self.labeled_tuples = []
-        marker_identifier = MarkerIdentification(self.clusters)
-        self.markers = marker_identifier.identify_markers()
+        self.marker_identifier = MarkerIdentificationLevel2(self.clusters)
+        self.marker_identifier.identify_markers()
 
         self.identify_features()
 
@@ -28,7 +27,7 @@ class Clusters:
         return self.labeled_tuples
 
     def identify_features(self):
-        ff = FeatureFactory(self.clusters, self.markers)
+        ff = FeatureFactory(self.clusters, self.marker_identifier)
         self.labeled_expressions = ff.labeled_exprs
 
     def __len__(self):

@@ -4,12 +4,12 @@ __all__ = ["FeatureFactory"]
 
 class FeatureFactory:
 
-    def __init__(self, clusters, markers):
+    def __init__(self, clusters, marker_identification):
         self.clusters = clusters
         self.expressions = []
         self.extract_expressions()
         self.labeled_exprs = []
-        self.markers = markers
+        self.marker_identification = marker_identification
         self.total = 0
         for i in clusters: self.total += len(i)
         self.generate_features()
@@ -27,5 +27,5 @@ class FeatureFactory:
             rel_clusters = []
             for cluster in self.clusters:
                 rel_clusters.append(cluster.get_cluster_without_expr(expression))
-            fc = FeatureCreator(rel_clusters, expression, self.markers)
+            fc = FeatureCreator(rel_clusters, expression, self.marker_identification)
             self.labeled_exprs.append(fc.produce_features())
