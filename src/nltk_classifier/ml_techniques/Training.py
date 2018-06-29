@@ -1,13 +1,14 @@
 from nltk_classifier.models.Clusters import Clusters
+from nltk_classifier.ml_techniques.NaiveBayesMethod import *
+from nltk_classifier.ml_techniques.DecisionTreeMethod import *
 import json, time, random
 __all__ = ["Training"]
 
 
 class Training:
 
-    NAIVE_BAYES = 1
-    DECISION_TREE = 2
     def __init__(self, path, train_only=True):
+        self.training = None
         self.training_set = []
         self.X = []
         self.Y = []
@@ -18,17 +19,21 @@ class Training:
             self.generate_XY_arrays(j_object)
             self.json_unpack_to_array_of_tuples(j_object)
         else:
-            clusters = Clusters(path)
-            self.training_set = clusters.get_labeled_dataset()
+            self.clusters = Clusters(path)
+            self.training_set = self.clusters.get_labeled_dataset()
             random.shuffle(self.training_set)
             self.save_training_set_to_file(self.training_set)
             self.generate_XY_arrays(self.training_set)
 
-    def train(self, ml_technique, percentage):
-        if ml_technique == self.NAIVE_BAYES:
-            pass
-        elif ml_technique == self.DECISION_TREE:
-            pass
+    def decision_tree_train(self, percentage):
+        self.training = DecisionTreeMethod(self.X, self.Y)
+        self.training.train(percentage)
+
+    def naive_bayes_train(self, percentage):
+        self.training = NaiveBayesMethod(self.training_set)
+        self.training.train(percentage)
+
+    #TODO: identify unknown
 
     def generate_XY_arrays(self, array):
         for i in array:

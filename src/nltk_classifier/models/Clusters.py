@@ -16,10 +16,8 @@ class Clusters:
         self.vocab_tables = []
         self.markers = []
         self.labeled_tuples = []
-
         self.identify_markers()
         self.identify_features()
-        self.save_features_to_file()
 
     #imports raw data into raw clusters
     def import_raw_data(self, path):
@@ -28,7 +26,6 @@ class Clusters:
 
     def get_labeled_dataset(self):
         for expression in self.labeled_expressions:
-            # labeled_tuples.append(expression.export_as_tuple())
             self.labeled_tuples.append(expression.export_as_dict())
         return self.labeled_tuples
 
@@ -65,8 +62,3 @@ class Clusters:
         for cluster in self.clusters:
             total += len(cluster)
         return total
-
-    def save_features_to_file(self):
-        path = "/Users/tomaszczernuszenko/PycharmProjects/UCL-Classifier/data/features.json"
-        with open(path, 'w') as outfile:
-            json.dump(self.labeled_tuples, outfile)
