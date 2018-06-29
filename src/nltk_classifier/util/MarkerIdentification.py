@@ -22,7 +22,6 @@ class MarkerIdentification:
                     self.markers.append(list_n[i][0])
         return self.markers
 
-
     def is_good_marker(self, key, value):
         for table in self.vocab_tables:
             if key not in table or table[key] * 2 < value:
