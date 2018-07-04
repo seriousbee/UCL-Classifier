@@ -52,7 +52,7 @@ class MarkerIdentificationLevel2:
 
         for word in words:
             if word in self.more_markers:
-                feature_dict[word] = 1
+                feature_dict[self.more_markers[word]] = 1
 
         for key in feature_dict:
             f = Feature()

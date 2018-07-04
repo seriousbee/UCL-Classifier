@@ -1,5 +1,5 @@
 from sklearn import tree
-import graphviz
+import graphviz, time
 
 __all__ = ["DecisionTreeMethod"]
 
@@ -11,7 +11,7 @@ class DecisionTreeMethod:
         self.Y = Y
 
     def train(self, percentage):
-        self.classifier = tree.DecisionTreeClassifier()
+        self.classifier = tree.DecisionTreeClassifier(min_samples_leaf=5)
         i = int(len(self.X) * percentage)
         X1 = self.X[:i]
         X2 = self.X[i + 1:]
@@ -24,4 +24,5 @@ class DecisionTreeMethod:
     def draw_decision_tree(self):
         dot_data = tree.export_graphviz(self.classifier, out_file=None)
         graph = graphviz.Source(dot_data)
-        graph.render("output.png")
+        time_str = time.strftime("%Y%m%d-%H%M%S")
+        graph.render("graph" + time_str)

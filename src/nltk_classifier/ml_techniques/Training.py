@@ -1,6 +1,8 @@
 from nltk_classifier.models.Clusters import Clusters
 from nltk_classifier.ml_techniques.NaiveBayesMethod import *
 from nltk_classifier.ml_techniques.DecisionTreeMethod import *
+from nltk_classifier.ml_techniques.SupportVectorMachineMethod import *
+
 import json, time, random
 __all__ = ["Training"]
 
@@ -22,11 +24,17 @@ class Training:
             self.clusters = Clusters(path)
             self.training_set = self.clusters.get_labeled_dataset()
             random.shuffle(self.training_set)
+            print(json.dumps(self.training_set))
             self.save_training_set_to_file(self.training_set)
             self.generate_XY_arrays(self.training_set)
 
     def decision_tree_train(self, percentage):
         self.training = DecisionTreeMethod(self.X, self.Y)
+        self.training.train(percentage)
+        self.training.draw_decision_tree()
+
+    def support_vector_machine_train(self, percentage):
+        self.training = SupportVectorMachineMethod(self.X, self.Y)
         self.training.train(percentage)
 
     def naive_bayes_train(self, percentage):

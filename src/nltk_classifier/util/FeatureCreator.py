@@ -1,4 +1,5 @@
 from nltk_classifier.models.Feature import *
+from nltk_classifier.util.WordSplitter import identify_words
 __all__ = ["FeatureCreator"]
 
 
@@ -11,9 +12,9 @@ class FeatureCreator:
         self.marker_identification = marker_identification
 
     def produce_features(self):
-        self.feature_length()
-        self.vocabulary_similarity_optimised()
-        self.vocabulary_similarity_no_stopwords()
+        #self.feature_length()
+        #self.vocabulary_similarity_optimised()
+        #self.vocabulary_similarity_no_stopwords()
         self.markers_present()
         #self.objective_word_present()
         self.expression.features = self.features
@@ -34,7 +35,7 @@ class FeatureCreator:
             f2.name = "Weighted single word similarity score for cluster" + cluster.name
             f2.value = 0
             table = cluster.generate_vocab_table()
-            for word in self.expression.text.lower().replace(".", "").replace(",", "").split(' '):
+            for word in identify_words(self.expression.text):
                 if word in table:
                     f1.value += table[word]
                     f2.value += table[word]*len(word)
@@ -47,7 +48,7 @@ class FeatureCreator:
             f.name = "No stopwords single word similarity score for cluster" + cluster.name
             f.value = 0
             table = cluster.generate_vocab_table_no_stopwords()
-            for word in self.expression.text.lower().replace(".", "").replace(",", "").split(' '):
+            for word in identify_words(self.expression.text):
                 if word in table:
                     f.value += table[word]*len(word)
             self.features[f.name] = f
@@ -60,14 +61,14 @@ class FeatureCreator:
             data = input.read()
         total = 0.0
         length = 0.0
-        for word in self.expression.text.lower().replace(".", "").replace(",", "").split(' '):
+        for word in identify_words(self.expression.text):
             length += 1
             if word in data:
                 total += 1
         return total / length
 
     def markers_present(self):
-        words = self.expression.text.lower().replace(".", "").replace(",", "").split(' ')
+        words = identify_words(self.expression.text)
         fs = self.marker_identification.feature_generation_for(words)
         for f in fs:
             self.features[f.name] = f

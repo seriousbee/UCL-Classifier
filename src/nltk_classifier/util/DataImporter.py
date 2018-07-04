@@ -10,7 +10,11 @@ class DataImporter:
         self.clusters = []
         with open(path, 'r') as input:
             data = input.read()
-        self.decode(data)
+        try:
+            self.decode(data)
+        except TypeError:
+            print("ERROR: Unable to inject the file. Are you sure the input data is formatted correctly?")
+            exit(1)
 
     # format: clusters: {{name: A, sentences: ["sen1", "sen2"]}, {name: B, sentences: ["sen3", "sen4"]}}
     def decode(self, json_string):

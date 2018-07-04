@@ -1,5 +1,6 @@
 from nltk.corpus import stopwords
 from nltk_classifier.models.Expression import *
+from nltk_classifier.util.WordSplitter import identify_words
 __all__ = ["Cluster"]
 
 
@@ -30,7 +31,7 @@ class Cluster:
         table = {}
         total = 0.0
         for expression in self.expressions:
-            for word in expression.text.lower().replace(".", "").replace(",", "").split(' '):
+            for word in identify_words(expression.text):
                 if word in table:
                     table[word] += 1
                 else:
@@ -44,7 +45,7 @@ class Cluster:
         table = {}
         total = 0.0
         for expression in self.expressions:
-            for word in expression.text.lower().replace(".", "").replace(",", "").split(' '):
+            for word in identify_words(expression.text):
                 if word not in stopwords.words('english'):
                     if word in table:
                         table[word] += 1

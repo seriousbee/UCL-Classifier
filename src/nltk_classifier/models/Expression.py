@@ -21,4 +21,7 @@ class Expression:
         return feature_dict
 
     def __str__(self):
-        return "<\"" + self.text + "\", \"" + self.label + "\">"
+        if self.features:
+            return str(self.features) + "; " + self.label
+        else:
+            return "<\"" + self.text + "\", \"" + self.label + "\">"
