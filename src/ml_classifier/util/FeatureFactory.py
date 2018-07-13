@@ -1,4 +1,4 @@
-from nltk_classifier.util.FeatureCreator import *
+from ml_classifier.util.FeatureCreator import *
 __all__ = ["FeatureFactory"]
 
 

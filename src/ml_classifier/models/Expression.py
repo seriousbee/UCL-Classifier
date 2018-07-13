@@ -1,3 +1,5 @@
+from ml_classifier.models.Feature import *
+
 __all__ = ["Expression"]
 
 
@@ -11,6 +13,14 @@ class Expression:
         if self.text != "Unknown":
             return (self.text,) + (tuple([self.features[i].value for i in self.features])) + (self.label,)
         return (self.text,) + (tuple([self.features[i].value for i in self.features]))
+
+    def export_as_array(self):
+        # if "text" not in self.features:
+        #     f = Feature()
+        #     f.name = "text"
+        #     f.value = self.text
+        #     self.features["text"] = f
+        return [[self.features[i].value for i in sorted(self.features.keys())]]
 
     def export_as_dict(self):
         feature_dict = {"text": self.text}

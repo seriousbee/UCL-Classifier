@@ -1,6 +1,10 @@
-from nltk_classifier.util.DataImporter import *
-from nltk_classifier.util.FeatureFactory import *
-from nltk_classifier.util.MarkerIdentificationLevel2 import *
+from ml_classifier.util.DataImporter import *
+from ml_classifier.util.FeatureFactory import *
+from ml_classifier.util.MarkerIdentificationLevel2 import *
+from ml_classifier.util.FeatureCreator import *
+from ml_classifier.models.Expression import *
+
+
 __all__ = ["Clusters"]
 
 # stores all data in the system
@@ -13,8 +17,6 @@ class Clusters:
         self.labeled_tuples = []
         self.marker_identifier = MarkerIdentificationLevel2(self.clusters)
         self.marker_identifier.identify_markers()
-
-        self.identify_features()
 
     # imports raw data into raw clusters
     def import_raw_data(self, path):
@@ -35,3 +37,8 @@ class Clusters:
         for cluster in self.clusters:
             total += len(cluster)
         return total
+
+    def identify_features_for_unknown(self, sentence):
+        expression = Expression(sentence, "Unknown")
+        fc = FeatureCreator(self.clusters, expression, self.marker_identifier)
+        return fc.produce_features()

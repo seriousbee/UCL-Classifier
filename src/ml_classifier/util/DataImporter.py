@@ -1,4 +1,4 @@
-from nltk_classifier.models.Cluster import *
+from ml_classifier.models.Cluster import *
 import json
 __all__ = ["DataImporter"]
 

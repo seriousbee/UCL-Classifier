@@ -1,7 +1,7 @@
-from nltk_classifier.models.Clusters import Clusters
-from nltk_classifier.ml_techniques.NaiveBayesMethod import *
-from nltk_classifier.ml_techniques.DecisionTreeMethod import *
-from nltk_classifier.ml_techniques.SupportVectorMachineMethod import *
+from ml_classifier.models.Clusters import Clusters
+from ml_classifier.ml_techniques.NaiveBayesMethod import *
+from ml_classifier.ml_techniques.DecisionTreeMethod import *
+from ml_classifier.ml_techniques.SupportVectorMachineMethod import *
 
 import json, time, random
 __all__ = ["Training"]
@@ -9,19 +9,23 @@ __all__ = ["Training"]
 
 class Training:
 
-    def __init__(self, path, train_only=True):
+    def __init__(self, raw_path="", labeled_path="", train_only=True):
+        self.raw_path = raw_path
+        self.labeled_path = labeled_path
         self.training = None
         self.training_set = []
         self.X = []
         self.Y = []
+        self.clusters = None
         if train_only:
-            with open(path, 'r') as input:
+            with open(self.labeled_path, 'r') as input:
                 data = input.read()
             j_object = json.loads(data)
             self.generate_XY_arrays(j_object)
             self.json_unpack_to_array_of_tuples(j_object)
         else:
-            self.clusters = Clusters(path)
+            self.clusters = Clusters(self.raw_path)
+            self.clusters.identify_features()
             self.training_set = self.clusters.get_labeled_dataset()
             random.shuffle(self.training_set)
             print(json.dumps(self.training_set))
@@ -41,13 +45,16 @@ class Training:
         self.training = NaiveBayesMethod(self.training_set)
         self.training.train(percentage)
 
-    #TODO: identify unknown
+    def classify_unknown(self, sentence):
+        if self.clusters is None:
+            self.clusters = Clusters(self.raw_path) #this takes ages to execute!!!
+        return self.training.classify_unknown(self.clusters.identify_features_for_unknown(sentence))
 
     def generate_XY_arrays(self, array):
         for i in array:
             self.Y.append(i[1])
             arr = []
-            for k in i[0]:
+            for k in sorted(i[0].keys()):
                 try:
                     arr.append(float(i[0][k]))
                 except ValueError:

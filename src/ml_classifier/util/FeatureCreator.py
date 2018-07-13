@@ -1,5 +1,5 @@
-from nltk_classifier.models.Feature import *
-from nltk_classifier.util.WordSplitter import identify_words
+from ml_classifier.models.Feature import *
+from ml_classifier.util.WordSplitter import identify_words
 __all__ = ["FeatureCreator"]
 
 

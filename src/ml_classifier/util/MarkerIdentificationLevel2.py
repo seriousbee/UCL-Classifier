@@ -1,5 +1,5 @@
 from nltk.corpus import wordnet
-from nltk_classifier.models.Feature import *
+from ml_classifier.models.Feature import *
 __all__ = ["MarkerIdentificationLevel2"]
 
 

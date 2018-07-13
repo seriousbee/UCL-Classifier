@@ -1,4 +1,5 @@
 from sklearn import svm
+import random
 
 __all__ = ["SupportVectorMachineMethod"]
 
@@ -17,5 +18,9 @@ class SupportVectorMachineMethod:
         Y1 = self.Y[:i]
         Y2 = self.Y[i + 1:]
         self.classifier.fit(X1, Y1)
-        print("Trained Model, accuracy:")
+        print("Trained Model, precision:")
         print(self.classifier.score(X2, Y2))
+
+    #TODO: understand what the output means
+    def classify_unknown(self, expression):
+        return self.classifier.predict(expression.export_as_array())[0]
