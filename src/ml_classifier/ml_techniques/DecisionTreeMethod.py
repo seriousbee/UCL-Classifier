@@ -1,5 +1,6 @@
 from sklearn import tree
-import graphviz, time, random
+from sklearn.metrics import f1_score
+import graphviz, time
 
 
 __all__ = ["DecisionTreeMethod"]
@@ -19,8 +20,11 @@ class DecisionTreeMethod:
         Y1 = self.Y[:i]
         Y2 = self.Y[i + 1:]
         self.classifier.fit(X1, Y1)
-        print("Trained Model, precision:")
-        print(self.classifier.score(X2, Y2))
+        #print("Trained Model, precision:")
+        #print(self.classifier.score(X2, Y2))
+        y_true = Y2
+        y_pred = self.classifier.predict(X2)
+        #print("F1: " + str(f1_score(y_true, y_pred, average='macro')))
 
     def draw_decision_tree(self):
         dot_data = tree.export_graphviz(self.classifier, out_file=None)
@@ -29,4 +33,4 @@ class DecisionTreeMethod:
         graph.render("graph" + time_str)
 
     def classify_unknown(self, expression):
-        return self.classifier.predict(expression.export_as_array()) > 0
+        return self.classifier.predict(expression.export_as_array())[0]

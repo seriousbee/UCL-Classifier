@@ -1,5 +1,5 @@
 from sklearn import svm
-import random
+from sklearn.metrics import f1_score
 
 __all__ = ["SupportVectorMachineMethod"]
 
@@ -18,8 +18,11 @@ class SupportVectorMachineMethod:
         Y1 = self.Y[:i]
         Y2 = self.Y[i + 1:]
         self.classifier.fit(X1, Y1)
-        print("Trained Model, precision:")
-        print(self.classifier.score(X2, Y2))
+        #print("Trained Model, precision:")
+        #print(self.classifier.score(X2, Y2))
+        y_true = Y2
+        y_pred = self.classifier.predict(X2)
+        #print("F1: " + str(f1_score(y_true, y_pred, average='macro')))
 
     #TODO: understand what the output means
     def classify_unknown(self, expression):
