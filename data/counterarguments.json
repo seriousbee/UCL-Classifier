@@ -1,0 +1,100 @@
+{
+  "counterclasses" : [
+    {
+      "markers" : [
+        "motivation"
+      ],
+      "arguments" : [
+        "You could use a personal coach"
+      ]
+    },
+    {
+      "markers" : [
+        "time"
+      ],
+      "arguments" : [
+        "If you waste less time on social media, you'll surely find time to excercise"
+      ]
+    },
+    {
+      "markers" : [
+        "work"
+      ],
+      "arguments" : [
+        "You could join a gym close to your office"
+      ]
+    },
+    {
+      "markers" : [
+        "family"
+      ],
+      "arguments" : [
+        "You can can ask a member of your family to care of the household while you excercise"
+      ]
+    },
+    {
+      "markers" : [
+        "motivation",
+        "work"
+      ],
+      "arguments" : [
+        "You can work out with other people from your office"
+      ]
+    },
+    {
+      "markers" : [
+        "time",
+        "motivation"
+      ],
+      "arguments" : [
+        "Try watching some motivation speakers about time management"
+      ]
+    },
+    {
+      "markers" : [
+        "time",
+        "work"
+      ],
+      "arguments" : [
+        "Try lunchtime workouts!"
+      ]
+    },
+    {
+      "markers" : [
+        "work",
+        "family"
+      ],
+      "arguments" : [
+        "Invite your other collegues from work and you can all with your families"
+      ]
+    },
+    {
+      "markers" : [
+        "family",
+        "time"
+      ],
+      "arguments" : [
+        "Maybe you get someone to take care of the household while you're away?"
+      ]
+    },
+    {
+      "markers" : [
+        "money"
+      ],
+      "arguments" : [
+        "Running does not cost anything",
+        "You can use a cheap student gym",
+        "There are plenty of sports not requiring significant investment"
+      ]
+    },
+    {
+      "markers" : [
+        "taste"
+      ],
+      "arguments" : [
+        "The fact that you don't like sport doesn't change the reality that you need it"
+      ]
+    }
+
+  ]
+}

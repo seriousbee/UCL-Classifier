@@ -40,5 +40,5 @@ class Clusters:
 
     def identify_features_for_unknown(self, sentence):
         expression = Expression(sentence, "Unknown")
-        fc = FeatureCreator(self.clusters, expression, self.marker_identifier)
+        fc = FeatureCreator(clusters=self.clusters, expression=expression, marker_identification=self.marker_identifier)
         return fc.produce_features()

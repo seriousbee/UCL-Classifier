@@ -1,18 +1,21 @@
 import nltk
-from nltk.stem import WordNetLemmatizer
-
-__all__ = ["identify_words"]
+from nltk.stem import SnowballStemmer
+__all__ = ["identify_words", "identify_words_raw"]
 
 class WordSplitter:
     def __init__(self):
-        self.wordnet_lemmatizer = WordNetLemmatizer()
+        self.snowball_stemmer = SnowballStemmer("english")
 
 
 def identify_words(sentence):
     words = nltk.word_tokenize(sentence)
     result = []
-    wordnet_lemmatizer = WordNetLemmatizer()
+    snowball_stemmer = SnowballStemmer("english")
     for word in words:
         if word[0].isalpha():
-            result.append(wordnet_lemmatizer.lemmatize(word.lower(), pos="v"))
+            result.append(snowball_stemmer.stem(word.lower()))
     return result
+
+def identify_words_raw(sentence):
+    return nltk.word_tokenize(sentence)
+

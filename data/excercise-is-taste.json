@@ -44,7 +44,9 @@
 "I am very lazy and stay at home and eat food most of the night or waste my time on my phone.",
 "I don't do any sports, because I'm so lazy. Well, sports have never been my thing",
 "Because I'm too lazy. But I'm trying",
-		"I am too lazy and unmotivated to start doing sports. I have other hobbies that I think is more fun and interesting than sports, like reading and playing drums"
+		"I am too lazy and unmotivated to start doing sports. I have other hobbies that I think is more fun and interesting than sports, like reading and playing drums",
+			"Because I am always tired and it is difficult for me to find the strength to do that. "
+
 		]
 	},
 	{
@@ -54,7 +56,6 @@
 "not enough time. University and work",
 "because i do not have enough time. see friends , study and travel",
 		"I don't have enough time. I work full-time and then I spend over 2 hours per day commuting, sometimes close to 3. No way am I waking up earlier and then when I get home I cook dinner, have 1 hour of \"free time\" and then go to sleep",
-
 			"Not enough time because I do things around house, occasionally I relax doing nothing after busy day",
 "After busy day I'm just too tired to do more. I can do more but I don't have spare time, I need to get up in the morning everyday. And if I'm too tired in the evening to do exercises it means I was moving enough through day",
 "Maybe my will is not strong enough. I just can't force myself",
@@ -62,7 +63,6 @@
 "Because I currently only get six hours sleep a night, if I got up earlier I would get less which would affect my ability to do my job.",
 "Lack of motivation I guess. I just cant be bothered",
 "I have to clean the house and otherwise prioritise my time at the end of the day",
-
 "I sometimes work out but not very often because I am very busy",
 "good question. I guess I just dont really want to and cant force myself",
 "laziness. don't have the motivation to do even a quick routine",
@@ -133,7 +133,6 @@
 "I am very busy due to university. Something always comes up that at the time feels more important than going to the gym",
 "Its hard to motivate myself. Because I have never been much into sports",
 "Because I am always very busy at university and I have lots of exams to prepare. ",
-"Because I am always tired and it is difficult for me to find the strength to do that. ",
 "During university I don't have much time but I do walk to and from school",
 "Because I don't have the motivation. It's hard",
 "I am busy with university and work so I often don't have the energy to exercise.",

@@ -10,6 +10,8 @@ class MarkerIdentificationLevel2:
         self.clusters = clusters
         self.markers = []
         self.more_markers = {}
+        self.markers = ["negation"]
+        self.more_markers = {"no":"negation", "n't":"negation", "not":"negation"}
 
     def identify_markers(self):
         self.generate_vocab_tables()

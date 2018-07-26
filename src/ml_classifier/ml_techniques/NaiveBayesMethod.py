@@ -15,7 +15,7 @@ class NaiveBayesMethod:
         test_set = self.labeled_tuples[:i]
         self.classifier = nltk.NaiveBayesClassifier.train(train_set)
         #print("Trained Model, precision:")
-        #print(nltk.classify.accuracy(self.classifier, test_set))
+        print(nltk.classify.accuracy(self.classifier, test_set))
 
     def classify_unknown(self, expression):
         #self.classifier.classify(expression.export_as_dict())

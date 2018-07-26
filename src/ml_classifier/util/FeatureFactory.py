@@ -27,5 +27,5 @@ class FeatureFactory:
             rel_clusters = []
             for cluster in self.clusters:
                 rel_clusters.append(cluster.get_cluster_without_expr(expression))
-            fc = FeatureCreator(rel_clusters, expression, self.marker_identification)
+            fc = FeatureCreator(clusters=rel_clusters, expression=expression, marker_identification=self.marker_identification)
             self.labeled_exprs.append(fc.produce_features())

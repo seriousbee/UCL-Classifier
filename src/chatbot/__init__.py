@@ -1,4 +1,5 @@
 from chatbot.ChatEngine import *
+import random
 
 __all__ = [""]
 
@@ -9,57 +10,50 @@ def main():
     print("I see... Could you tell me why?")
     while True:
         engine.input_and_classify()
-        engine.give_counterargument()
-        print("Are you now convinced it's worth to exercise?")
-        i = input()
-        if i[0] == 'y':
-            break
-        else:
-            print("Why?")
+        if engine.give_counterargument():
+            print("Are you now convinced it's worth to exercise?")
+            i = input()
+            if len (i) == 0 or i[0] == 'y':
+                break
+            else:
+                print(random.choice(["Alright, why?", "What stops you from doing more exercise then?"]))
     print("Thank you for taking the time time to speak to me :)")
     print("Good bye!")
+    #print(engine.messages)
 
 if __name__ == "__main__":
     print("Program initialisation:")
     engine = ChatEngine()
-    print("Progress: 10%")
     engine.add_classifier_layer(
-        labeled_path="/Users/tomaszczernuszenko/PycharmProjects/UCL-Classifier/data/features20180718-094337.json",
+        labeled_path="/Users/tomaszczernuszenko/PycharmProjects/UCL-Classifier/data/features20180723-094404.json",
         raw_path="/Users/tomaszczernuszenko/PycharmProjects/UCL-Classifier/data/excercise-is-motivation.json",
         name="motivation")
-    print("Progress: 40%")
     engine.add_classifier_layer(
-        labeled_path="/Users/tomaszczernuszenko/PycharmProjects/UCL-Classifier/data/features20180718-094629.json",
+        labeled_path="/Users/tomaszczernuszenko/PycharmProjects/UCL-Classifier/data/features20180723-094502.json",
         raw_path="/Users/tomaszczernuszenko/PycharmProjects/UCL-Classifier/data/excercise-is-work.json",
         name="work")
-    print("Progress: 60%")
     engine.add_classifier_layer(
-        labeled_path="/Users/tomaszczernuszenko/PycharmProjects/UCL-Classifier/data/features20180718-094633.json",
+        labeled_path="/Users/tomaszczernuszenko/PycharmProjects/UCL-Classifier/data/features20180723-094505.json",
         raw_path="/Users/tomaszczernuszenko/PycharmProjects/UCL-Classifier/data/excercise-is-time.json",
         name="time")
-    print("Progress: 80%")
     engine.add_classifier_layer(
-        labeled_path="/Users/tomaszczernuszenko/PycharmProjects/UCL-Classifier/data/features20180718-094647.json",
+        labeled_path="/Users/tomaszczernuszenko/PycharmProjects/UCL-Classifier/data/features20180723-092706.json",
         raw_path="/Users/tomaszczernuszenko/PycharmProjects/UCL-Classifier/data/excercise-is-family.json",
         name="family")
-    print("Progress: 100%")
+    engine.add_classifier_layer(
+        labeled_path="/Users/tomaszczernuszenko/PycharmProjects/UCL-Classifier/data/features20180725-134454.json",
+        raw_path="/Users/tomaszczernuszenko/PycharmProjects/UCL-Classifier/data/excercise-is-money.json",
+        name="money")
+    engine.add_classifier_layer(
+        labeled_path="/Users/tomaszczernuszenko/PycharmProjects/UCL-Classifier/data/features20180725-135039.json",
+        raw_path="/Users/tomaszczernuszenko/PycharmProjects/UCL-Classifier/data/excercise-is-taste.json",
+        name="taste")
     print("Program initialised correctly.")
     print("----")
     print()
 
+    engine.add_counterarguments_from_file("/Users/tomaszczernuszenko/PycharmProjects/UCL-Classifier/data/counterarguments.json")
 
-    engine.add_counterarguments(markers = ["motivation"], arguments= ["You could use a personal coach"])
-    engine.add_counterarguments(markers =["work"], arguments= ["You could join a gym close to your office"])
-    engine.add_counterarguments(markers =["time"], arguments= ["If you waste less time on social media, you'll surely find time to excercise"])
-    engine.add_counterarguments(markers =["family"], arguments=["You can can ask a member of your family to care of the household while you excercise"])
-    engine.add_counterarguments(markers =["motivation", "work"], arguments= ["You can work out with other people from your office"])
-    engine.add_counterarguments(markers =["motivation", "time"], arguments= ["Try watching some motivation speakers about time management"])
-    engine.add_counterarguments(markers =["motivation", "family"], arguments= ["You could use a personal coach"])
-    engine.add_counterarguments(markers =["work", "time"], arguments= ["Try lunchtime workouts!"])
-    engine.add_counterarguments(markers =["work", "family"], arguments= ["Invite your other collegues from work and you can all with your families"])
-    engine.add_counterarguments(markers =["time", "family"], arguments= ["Maybe you get someone to take care of the house while you're away?"])
-
-    engine.add_counterarguments(["motivation", "work"], ["You could use a personal coach"])
     #handling more labels than counterarguments DONE
     #lemmatisation DONE
     #other messages DONE
@@ -67,10 +61,22 @@ if __name__ == "__main__":
     #fix classifiers DONE
     #store classifiers, markers
     #plan for the rest of the research
-    #TODO: don't repeat countteratguments
-    #TODO: new features - main word in a subsentence and y/n
-    #TODO: pythonise code
+    #don't repeat countteratguments
+    #pythonise code
     #TODO: thorough documentation
+    #time
+    #stemming of motivation and motivate
+    #TODO: fix stemming/lemma + thesaurus
+    #no classification?
+    #example of a good conversation 5
+    #read from a file
+    #TODO: 6 classifiers
+    #TODO: unclassified counterargument pointer - third try
+    #TODO: demo negation + splitting/conjunction
+    #TODO: boring data
+    #TODO: hour and a half, to and from work
+    #TODO: double negation
+    #TODO: little as negation?
 
     main()
 

@@ -3,7 +3,7 @@ __all__ = ["util", "models", "ml_techniques"]
 
 
 def main():
-    training = Training(raw_path="/Users/tomaszczernuszenko/PycharmProjects/UCL-Classifier/data/excercise-is-family.json", train_only=False)
+    training = Training(raw_path="/Users/tomaszczernuszenko/PycharmProjects/UCL-Classifier/data/excercise-is-taste.json", train_only=False)
     print("SVM: ")
     training.support_vector_machine_train(.8)
 

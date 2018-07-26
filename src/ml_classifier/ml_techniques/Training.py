@@ -24,6 +24,7 @@ class Training:
             self.generate_XY_arrays(j_object)
             self.json_unpack_to_array_of_tuples(j_object)
         else:
+            print(raw_path)
             self.clusters = Clusters(self.raw_path)
             self.clusters.identify_features()
             self.training_set = self.clusters.get_labeled_dataset()
@@ -35,7 +36,7 @@ class Training:
     def decision_tree_train(self, percentage):
         self.training = DecisionTreeMethod(self.X, self.Y)
         self.training.train(percentage)
-        self.training.draw_decision_tree()
+        #self.training.draw_decision_tree()
 
     def support_vector_machine_train(self, percentage):
         self.training = SupportVectorMachineMethod(self.X, self.Y)

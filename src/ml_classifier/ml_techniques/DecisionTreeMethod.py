@@ -14,17 +14,20 @@ class DecisionTreeMethod:
 
     def train(self, percentage):
         self.classifier = tree.DecisionTreeClassifier(min_samples_leaf=5)
+        if percentage == 1:
+            self.classifier.fit(self.X, self.Y)
+            return
         i = int(len(self.X) * percentage)
         X1 = self.X[:i]
         X2 = self.X[i + 1:]
         Y1 = self.Y[:i]
         Y2 = self.Y[i + 1:]
         self.classifier.fit(X1, Y1)
-        #print("Trained Model, precision:")
-        #print(self.classifier.score(X2, Y2))
+        print("Trained Model, precision:")
+        print(self.classifier.score(X2, Y2))
         y_true = Y2
         y_pred = self.classifier.predict(X2)
-        #print("F1: " + str(f1_score(y_true, y_pred, average='macro')))
+        print("F1: " + str(f1_score(y_true, y_pred, average='macro')))
 
     def draw_decision_tree(self):
         dot_data = tree.export_graphviz(self.classifier, out_file=None)
